@@ -14,18 +14,25 @@
 }
 body {
   font-family: "Roboto", sans-serif;
-  
+
   font-size: 16px;
   line-height: 1.5;
   color: var(--slate);
   background-color: var(--white);
   box-sizing: border-box;
-  color: var(--slate);
-  letter-spacing: .02em;
+  letter-spacing: 0.02em;
 }
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+}
+
 h1 {
   font-size: 56px;
-  line-height: 1.07 ;
+  line-height: 1.07;
   letter-spacing: 0.02em;
   color: var(--white);
 }
@@ -52,20 +59,64 @@ h2 {
 ul,
 ol {
   list-style-type: none;
-  margin: 0;
   padding: 0;
 }
 a {
   text-decoration: none;
 }
+img {
+  display: block;
+}
+main {
+  flex-grow: 1;
+}
 
 .hidden {
-  display: none;
-  visibility: hidden;
-  opacity: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 .container {
-  margin: 0 156px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1158px;
+  width: 100%;
+  padding: 0 15px;
+}
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  border-bottom: 1px solid var(--cornflower);
+}
+.header > .container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.header .link {
+  line-height: 72px;
+}
+.section {
+  padding: 120px 0;
+}
+.section.advantages {
+  padding-bottom: 60px;
+}
+.section.products {
+  padding-top: 60px;
+}
+.section.portfolio-page {
+  padding: 96px 0 120px 0;
 }
 .logo {
   font-family: "Raleway", sans-serif;
@@ -85,12 +136,18 @@ a {
 .logo_colored {
   color: var(--iris);
 }
-.nav a {
+.nav {
+  display: flex;
+  gap: 76px;
+}
+.header ul {
+  display: flex;
+  gap: 40px;
+}
+.nav ul a {
   color: var(--navy-blue);
   font-weight: 500;
   position: relative;
-  padding: 20px 0;
-  margin: 0 20px;
   border-bottom: 4px solid transparent;
 }
 .nav a:hover,
@@ -111,10 +168,10 @@ a:focus {
   color: var(--ocean);
 }
 .hero {
-  padding: 188px 0;
   background: var(--navy-blue);
 }
-.hero h1 {
+.hero .title {
+  margin: 68px auto 48px auto;
   max-width: 500px;
   width: 100%;
 }
@@ -128,21 +185,60 @@ a:focus {
   border: none;
   border-radius: 4px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+  margin: 0 auto 68px auto;
+  display: block;
 }
 .hero button:hover,
 .hero button:focus {
   background-color: var(--ocean);
 }
-.advantages,
-.team {
-  padding: 120px 0;
+.advantages ul {
+  display: flex;
+  gap: 24px;
 }
+.advantages ul li {
+  flex-basis: 264px;
+}
+.advantages h3 {
+  padding-bottom: 8px;
+}
+.products h2 {
+  padding-bottom: 72px;
+}
+.product-cards {
+  display: flex;
+  gap: 24px;
+}
+.product-cards__item {
+  display: block;
+  max-width: 360px;
+  width: 100%;
+  height: auto;
+}
+
 .team {
   background-color: var(--cloud);
+}
+.team h2 {
+  padding-bottom: 72px;
 }
 .team h3,
 .team p {
   text-align: center;
+}
+.team-cards {
+  display: flex;
+  gap: 24px;
+}
+.team-cards__item {
+  border-radius: 0px 0px 4px 4px;
+  background: var(--white);
+  box-shadow: 0px 1px 6px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 2px 1px 0px rgba(46, 47, 66, 0.08);
+}
+.team-cards-info {
+  padding: 32px 0;
 }
 .footer {
   background-color: var(--navy-blue);
@@ -152,6 +248,15 @@ a:focus {
   color: var(--white);
   max-width: 264px;
   width: 100%;
+  margin-top: 17.5px;
+}
+.filters {
+  display: flex;
+  max-width: 586px;
+  width: 100%;
+  gap: 24px;
+  margin: 0 auto;
+  padding-bottom: 72px;
 }
 .filters button {
   line-height: 48px;
@@ -169,7 +274,35 @@ a:focus {
 .filters button:hover,
 .filters button:focus {
   background: var(--ocean);
-  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12),
-    0px 2px 1px 0px rgba(0, 0, 0, 0.08), 0px 3px 1px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 3px 1px 0px rgba(0, 0, 0, 0.1),
+    0px 2px 1px 0px rgba(0, 0, 0, 0.08), 0px 2px 2px 0px rgba(0, 0, 0, 0.12);
   color: var(--white);
+}
+.portfolio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px 24px;
+}
+.portfolio li {
+  width: 360px;
+  border: 1px solid var(--CORNFLOWER, #e7e9fc);
+}
+.portfolio-info {
+  padding: 32px 0 32px 16px;
+}
+.portfolio-info h2 {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  text-align: left;
+}
+.img-wrapper {
+  width: 360px;
+  height: 300px;
+  position: relative;
+}
+.img-wrapper img {
+  position: absolute;
+  left: -1px;
+  top: -1px;
 }
