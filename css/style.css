@@ -213,7 +213,7 @@ main {
   margin-bottom: 8px;
 }
 .products-title {
-  padding-bottom: 72px;
+  margin-bottom: 72px;
 }
 .product-cards {
   display: flex;
@@ -230,7 +230,7 @@ main {
   background-color: var(--cloud);
 }
 .team-title {
-  padding-bottom: 72px;
+  margin-bottom: 72px;
 }
 .team-cards-info__title {
   margin-bottom: 8px;
